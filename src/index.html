@@ -4,48 +4,61 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../public/favicon.ico"
+      type="image/x-icon"
+    />
     <title>Random Numbers Generator</title>
   </head>
-  <body>
+  <body class="bg-gray-900 text-gray-200 px-8">
     <main>
-      <h1 id="page-title">Random Numbers Generator</h1>
-      <form action="" id="main-form">
-        <div class="form-group">
-          <label for="input-min">Lower limit</label>
+      <h1 class="pt-4 pb-10 font-bold text-4xl" id="page-title">
+        Random Numbers Generator
+      </h1>
+      <form action="" class="flex flex-col items-center gap-3" id="main-form">
+        <div class="form-group flex flex-row gap-2 flex-wrap justify-center">
+          <label for="input-min">Lower limit:</label>
           <input
             type="number"
             name="min"
             id="input-min"
             value="1"
+            class="border rounded text-black focus:bg-gray-200 py-0.5 px-2"
             step="0.000000000000001"
             placeholder="Enter a number"
           />
         </div>
-        <div class="form-group">
-          <label for="input-max">Upper limit</label>
+        <div class="form-group flex flex-row gap-2 flex-wrap justify-center">
+          <label for="input-max">Upper limit:</label>
           <input
             type="number"
             name="max"
             id="input-max"
             value="10"
+            class="border rounded text-black focus:bg-gray-200 py-0.5 px-2"
             placeholder="Enter a number"
             step="0.000000000000001"
           />
         </div>
-        <div class="form-group">
-          <label for="input-how-many">How many Numbers</label>
+        <div class="form-group flex flex-row gap-2 flex-wrap justify-center">
+          <label for="input-how-many">How many Numbers:</label>
           <input
             type="number"
             name="how-many"
             id="input-how-many"
             value="1"
-            min="0"
+            class="border rounded text-black focus:bg-gray-200 py-0.5 px-2"
+            min="1"
             placeholder="Enter a number"
           />
         </div>
         <div class="form-group">
           <p>Allow duplication?</p>
-          <div class="input-group" id="input-group-duplication">
+          <div
+            class="input-group flex justify-center gap-3"
+            id="input-group-duplication"
+          >
             <input
               type="radio"
               name="duplication"
@@ -65,7 +78,10 @@
         </div>
         <div class="form-group">
           <p>Allow decimal numbers?</p>
-          <div class="input-group" id="input-group-decimal">
+          <div
+            class="input-group flex justify-center gap-3"
+            id="input-group-decimal"
+          >
             <input
               type="radio"
               name="decimal"
@@ -85,7 +101,10 @@
         </div>
         <div class="form-group">
           <p>Sort values?</p>
-          <div class="input-group" id="input-group-sort">
+          <div
+            class="input-group flex justify-center gap-3"
+            id="input-group-sort"
+          >
             <input type="radio" name="sort" value="yes" id="input-sort-y" />
             <label for="input-sort-y">Yes</label>
             <input
@@ -99,10 +118,37 @@
           </div>
         </div>
         <div class="form-group">
-          <button type="submit">Generate</button>
+          <button
+            class="bg-blue-600 hover:bg-blue-900 mt-4 px-4 py-1.5 text-white rounded"
+            type="submit"
+          >
+            Generate
+          </button>
         </div>
       </form>
-      <output id="out"></output>
+      <output class="flex justify-center py-10 text-2xl" id="out"></output>
+      <footer id="page-footer" class="text-center w-full">
+        <p>
+          <small
+            >Visit this project's
+            <a
+              class="hover:underline"
+              href="https://github.com/amartinsmg/RandomNumbers"
+              >repository</a
+            >.<br />
+            Made by
+            <a class="hover:underline" href="https://amartinsmg.github.io"
+              >amartinsmg</a
+            >.
+            <a
+              class="hover:underline"
+              href="https://www.flaticon.com/free-icons/number-one"
+              title="number one icons"
+              >Number one icons created by Hight Quality Icons - Flaticon</a
+            >.
+          </small>
+        </p>
+      </footer>
     </main>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
@@ -110,6 +156,5 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="./main.js"></script>
   </body>
 </html>
