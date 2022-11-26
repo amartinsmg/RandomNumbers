@@ -1,17 +1,5 @@
-function radomNumbers(min, max, length, duplication, decimal, sort) {
-  let dif = max - min,
-    n,
-    numbers = duplication ? [] : new Set();
-  if (length > max && !duplication) return [];
-  while ((duplication ? numbers.length : numbers.size) < length) {
-    n = min + Math.random() * dif;
-    if (!decimal) n = Math.round(n);
-    duplication ? numbers.push(n) : numbers.add(n);
-  }
-  if (!duplication) numbers = Array.from(numbers);
-  if (sort) numbers = numbers.sort((a, b) => a - b);
-  return numbers;
-}
+import "./input.css";
+import randomNumbers from "./random_numbers";
 
 function main() {
   const MinInput = $("#input-min"),
@@ -30,7 +18,7 @@ function main() {
       DUPLICATION = DuplicationInput.is(":checked"),
       DECIMAL = DecimalInput.is(":checked"),
       SORT = SortInput.is(":checked"),
-      Numbers = radomNumbers(MIN, MAX, HOW_MANY, DUPLICATION, DECIMAL, SORT);
+      Numbers = randomNumbers(MIN, MAX, HOW_MANY, DUPLICATION, DECIMAL, SORT);
     OutputDiv.html(Numbers.join(", "));
   });
 }
