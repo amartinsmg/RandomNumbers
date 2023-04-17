@@ -16,7 +16,7 @@ function randomNumbers(min, max, length, duplication, decimal, sort) {
   let range = max - min,
     n,
     numbers = duplication ? [] : new Set();
-  if ((length > range && !duplication) || min >= max) return [];
+  if ((length > range && !duplication && !decimal) || min >= max) return [];
   while ((duplication ? numbers.length : numbers.size) < length) {
     n = min + Math.random() * range;
     if (!decimal) n = Math.round(n);
