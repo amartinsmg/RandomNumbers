@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  max-width: 1368px;
+}
+
 #out {
   box-sizing: content-box;
   min-height: 2rem;
