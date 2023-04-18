@@ -1,4 +1,4 @@
-import "./input.css";
+import "./main.css";
 import randomNumbers from "./random_numbers";
 
 // This is the main function that handles the form submit event to generate random numbers based on user input.
