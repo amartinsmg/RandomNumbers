@@ -1,20 +1,30 @@
 import "./main.css";
 import randomNumbers from "./random_numbers";
+import roundTo from "./round_to";
 
-// This is the main function that handles the form submit event to generate random numbers based on user input.
+// Handles the form submit event to generate random numbers based on user input.
 
 function main() {
   const MinInput = $("#input-min"),
     MaxInput = $("#input-max"),
     HowManyInput = $("#input-how-many"),
-    DuplicationInput = $("#input-duplication-y"),
-    DecimalInput = $("#input-decimal-y"),
-    SortInput = $("#input-sort-y"),
+    DuplicationYesInput = $("#input-duplication-y"),
+    DecimalYesInput = $("#input-decimal-y"),
+    DecimalInputs = $('input[name="decimal"]'),
+    DecimalPlacesInput = $("#input-decimal-places"),
+    SortYesInput = $("#input-sort-y"),
     Form = $("#main-form"),
     OutputDiv = $("#out");
 
+  // Handles the 'change' event on the inputs that indicate if decimal numbers are allowed, and enables or disables the 'decimal-places' input
+
+  DecimalInputs.on("change", () => {
+    console.log(DecimalPlacesInput);
+    DecimalPlacesInput.prop("disabled", !DecimalYesInput.is(":checked"));
+  });
+
   /**
-    This function handles the form submit event.
+    @brief Handles the form submit event.
     @param e - The event object.
   */
   Form.on("submit", (e) => {
@@ -22,14 +32,19 @@ function main() {
     const MIN = parseFloat(MinInput.val()),
       MAX = parseFloat(MaxInput.val()),
       HOW_MANY = parseInt(HowManyInput.val()),
-      DUPLICATION = DuplicationInput.is(":checked"),
-      DECIMAL = DecimalInput.is(":checked"),
-      SORT = SortInput.is(":checked"),
+      DUPLICATION = DuplicationYesInput.is(":checked"),
+      DECIMAL = DecimalYesInput.is(":checked"),
+      DECIMAL_PLACES = parseInt(DecimalPlacesInput.val()),
+      SORT = SortYesInput.is(":checked"),
       Numbers = randomNumbers(MIN, MAX, HOW_MANY, DUPLICATION, DECIMAL, SORT);
-    OutputDiv.html(Numbers.join(", "));
+    OutputDiv.html(
+      DECIMAL
+        ? Numbers.map((n) => roundTo(n, DECIMAL_PLACES))
+        : Numbers.join(", ")
+    );
   });
 }
 
-// Execute the main function on page load.
+// Executes the main function on page load.
 
 $(document).ready(main);
