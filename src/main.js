@@ -39,7 +39,7 @@ function main() {
       Numbers = randomNumbers(MIN, MAX, HOW_MANY, DUPLICATION, DECIMAL, SORT);
     OutputDiv.html(
       DECIMAL
-        ? Numbers.map((n) => roundTo(n, DECIMAL_PLACES))
+        ? Numbers.map((n) => roundTo(n, DECIMAL_PLACES)).join(", ")
         : Numbers.join(", ")
     );
   });
