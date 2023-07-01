@@ -1,6 +1,6 @@
 # RandomNumbers
 
-RandomNumbers is a simple web-based random number generator that allows users to generate a specific number of random numbers within a specified range. It provides options for setting the minimum and maximum values, allowing duplication, decimal values, and sorting of generated numbers. The generator offers a user-friendly interface that makes it easy for users to input their preferred options and view the generated numbers in a readable format.
+RandomNumbers is a user-friendly web-based random number generator designed to generate a specific number of random numbers within a defined range. It offers various customization options, including the ability to set minimum and maximum values, allow duplication, and sort the generated numbers. Additionally, if the option for decimal values is enabled, users can also specify the desired number of decimal places. The generator provides a seamless interface where users can effortlessly input their preferences and conveniently view the generated numbers in a clear and readable format.
 
 ## Getting started
 
