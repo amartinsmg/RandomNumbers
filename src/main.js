@@ -1,6 +1,6 @@
 import "./main.css";
-import randomNumbers from "./random_numbers";
-import roundTo from "./round_to";
+import randomNumbers from "./js/random_numbers";
+import roundTo from "./js/round_to";
 
 // Handles the form submit event to generate random numbers based on user input.
 
