@@ -4,9 +4,10 @@
 
 ---
 
-## 🛠️ Tech Stack
+## </> Tech Stack
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E)
+![JQuery](https://img.shields.io/badge/JQuery-0769AD)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC)
 ![PostCSS](https://img.shields.io/badge/PostCSS-C82829)
 ![Babel](https://img.shields.io/badge/Babel-EEDA7C)
