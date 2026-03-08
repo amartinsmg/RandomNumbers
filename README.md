@@ -1,6 +1,6 @@
 # RandomNumbers
 
-## **Random Numbers** is a user-friendly, web-based tool designed to generate a specific set of random numbers within a defined range.
+**Random Numbers** is a user-friendly, web-based tool designed to generate a specific set of random numbers within a defined range.
 
 ---
 
@@ -46,7 +46,9 @@ yarn install
 yarn dev
 ```
 
-## Now, just open your browser at the address shown in your terminal to start using the calculator.
+Now, just open your browser at the address shown in your terminal to start using the calculator.
+
+---
 
 ## 🤝 Contributing
 
