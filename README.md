@@ -8,6 +8,10 @@
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC)
+![PostCSS](https://img.shields.io/badge/PostCSS-C82829)
+![Babel](https://img.shields.io/badge/Babel-EEDA7C)
+![Webpack](https://img.shields.io/badge/Webpack-8DD6F9)
+![Yarn](https://img.shields.io/badge/Yarn-2C8EBB)
 
 ---
 
@@ -61,4 +65,5 @@ Contributions make the open-source community an amazing place to learn, inspire,
 
 ## ⚖️ License
 
-This project is distributed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+This project is distributed under the MIT License.
+See the [LICENSE](./LICENSE) file for more information.
