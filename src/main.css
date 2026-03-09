@@ -2,20 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  max-width: 1368px;
-  margin: 0 auto;
-}
+@layer base {
+  html,
+  body {
+    max-width: 1368px;
+    min-height: 100%;
+    margin: 0 auto;
+  }
 
-#out {
-  box-sizing: content-box;
-  min-height: 2rem;
-}
+  html {
+    @apply flex flex-col;
+  }
 
-@media screen and (min-width: 576px) and (min-height: 620px) {
-  #page-footer {
-    position: fixed;
-    left: 0rem;
-    bottom: 6px;
+  body {
+    @apply flex-1 bg-gray-900 text-gray-200;
   }
 }
