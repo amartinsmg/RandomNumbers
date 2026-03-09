@@ -14,7 +14,8 @@ function main() {
     decimalPlacesInput = $("#input-decimal-places"),
     sortYesInput = $("#input-sort-y"),
     form = $("#main-form"),
-    outputDiv = $("#out");
+    outputEl = $("#out"),
+    copyBtn = $("#copy-btn");
 
   // Handles the 'change' event on the inputs that indicate if decimal numbers are allowed, and enables or disables the 'decimal-places' input
 
@@ -26,6 +27,7 @@ function main() {
     @brief Handles the form submit event.
     @param e - The event object.
   */
+
   form.on("submit", (e) => {
     e.preventDefault();
     const min = parseFloat(minInput.val()),
@@ -36,11 +38,24 @@ function main() {
       decimalPlaces = parseInt(decimalPlacesInput.val()),
       sort = sortYesInput.is(":checked"),
       numbers = randomNumbers(min, max, howMany, duplication, decimal, sort);
-    outputDiv.html(
+    outputEl.html(
       decimal
         ? numbers.map((n) => roundTo(n, decimalPlaces)).join(", ")
-        : numbers.join(", ")
+        : numbers.join(", "),
     );
+    copyBtn.prop("disabled", false);
+  });
+
+  // Handles the 'click' event on the 'Copy to Clipboard' button to copy the output to the clipboard.
+
+  copyBtn.on("click", () => {
+    const output = outputEl.text(),
+      btnText = copyBtn.text();
+    navigator.clipboard.writeText(output);
+    copyBtn.text("Copied!");
+    setTimeout(() => {
+      copyBtn.text(btnText);
+    }, 1200);
   });
 }
 
