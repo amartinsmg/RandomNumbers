@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -11,15 +11,15 @@
     />
     <title>Random Numbers Generator</title>
   </head>
-  <body class="bg-gray-900 text-gray-200 px-8">
-    <main>
-      <h1 class="pt-4 pb-10 font-bold text-4xl md:text-5xl text-center" id="page-title">
+  <body class="flex flex-col px-8 pt-4 pb-3">
+    <header>
+      <h1 class="font-bold text-4xl md:text-5xl text-center" id="page-title">
         Random Numbers Generator
       </h1>
+    </header>
+    <main class="flex-1 py-8">
       <form action="" class="flex flex-col items-center gap-3" id="main-form">
-        <div
-          class="form-group flex flex-col gap-2 justify-center"
-        >
+        <div class="form-group flex flex-col gap-2 justify-center">
           <label for="input-min">Lower limit:</label>
           <input
             type="number"
@@ -31,9 +31,7 @@
             placeholder="Enter a number"
           />
         </div>
-        <div
-          class="form-group flex flex-col gap-2 justify-center"
-        >
+        <div class="form-group flex flex-col gap-2 justify-center">
           <label for="input-max">Upper limit:</label>
           <input
             type="number"
@@ -45,9 +43,7 @@
             step="0.000000000000001"
           />
         </div>
-        <div
-          class="form-group flex flex-col gap-2 justify-center"
-        >
+        <div class="form-group flex flex-col gap-2 justify-center">
           <label for="input-how-many">How many Numbers:</label>
           <input
             type="number"
@@ -111,8 +107,10 @@
             type="number"
             name="decimal-places"
             id="input-decimal-places"
+            class="border rounded text-black disabled:bg-gray-500 disabled:border-0 focus:bg-gray-200 py-0.5 px-2 w-14"
             value="2"
-            class="border rounded text-black disabled:bg-gray-500 disabled:border-0 focus:bg-gray-200 py-0.5 px-2 w-10"
+            min="0"
+            max="15"
             disabled="true"
           />
         </div>
@@ -136,40 +134,49 @@
         </div>
         <div class="form-group">
           <button
-            class="bg-blue-600 hover:bg-blue-900 mt-4 px-4 py-1.5 text-white rounded"
+            class="bg-blue-600 hover:bg-blue-900 mt-4 px-4 py-1.5 rounded"
             type="submit"
           >
             Generate
           </button>
         </div>
       </form>
-      <output
-        class="flex justify-center text-center py-10 text-2xl"
-        id="out"
-      ></output>
-      <footer id="page-footer" class="text-center w-full">
-        <p>
-          <small
-            >Visit this project's
-            <a
-              class="hover:underline"
-              href="https://github.com/amartinsmg/RandomNumbers"
-              >repository</a
-            >.<br />
-            Made by
-            <a class="hover:underline" href="https://amartinsmg.github.io"
-              >amartinsmg</a
-            >.
-            <a
-              class="hover:underline"
-              href="https://www.flaticon.com/free-icons/number-one"
-              title="number one icons"
-              >Number one icons created by Hight Quality Icons - Flaticon</a
-            >.
-          </small>
-        </p>
-      </footer>
+      <div class="flex flex-col items-center gap-5 text-center py-10">
+        <output
+          class="box-content text-2xl min-h-8 max-h-96 sm:max-h-40 overflow-y-auto"
+          id="out"
+        ></output>
+        <button
+          class="bg-gray-500 hover:bg-gray-700 disabled:bg-gray-700 px-4 py-1.5 rounded"
+          id="copy-btn"
+          disabled="true"
+        >
+          Copy to Clipboard
+        </button>
+      </div>
     </main>
+    <footer id="page-footer" class="text-center w-full">
+      <p>
+        <small
+          >Visit this project's
+          <a
+            class="hover:underline"
+            href="https://github.com/amartinsmg/RandomNumbers"
+            >repository</a
+          >.<br />
+          Made by
+          <a class="hover:underline" href="https://amartinsmg.github.io"
+            >amartinsmg</a
+          >.
+          <a
+            class="hover:underline"
+            href="https://www.flaticon.com/free-icons/number-one"
+            title="number one icons"
+            >Number one icons created by Hight Quality Icons - Flaticon</a
+          >.
+        </small>
+      </p>
+    </footer>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
       integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
