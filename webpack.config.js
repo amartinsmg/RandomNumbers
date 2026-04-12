@@ -13,7 +13,7 @@ module.exports = {
   The entry point for the application.
   */
 
-  entry: "./src/main.js",
+  entry: "./src/js/main.js",
 
   /**
     The output configuration for the bundled files.
@@ -57,11 +57,6 @@ module.exports = {
   
   module: {
     rules: [
-      {
-        test: /\.js$/i,
-        use: "babel-loader",
-        exclude: /node_modules/,
-      },
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
