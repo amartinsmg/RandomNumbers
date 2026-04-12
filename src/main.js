@@ -5,22 +5,24 @@ import roundTo from "./js/round_to";
 // Handles the form submit event to generate random numbers based on user input.
 
 function main() {
-  const minInput = $("#input-min"),
-    maxInput = $("#input-max"),
-    howManyInput = $("#input-how-many"),
-    duplicationYesInput = $("#input-duplication-y"),
-    decimalYesInput = $("#input-decimal-y"),
-    decimalInputs = $('input[name="decimal"]'),
-    decimalPlacesInput = $("#input-decimal-places"),
-    sortYesInput = $("#input-sort-y"),
-    form = $("#main-form"),
-    outputEl = $("#out"),
-    copyBtn = $("#copy-btn");
+  const minInput = document.querySelector("#input-min"),
+    maxInput = document.querySelector("#input-max"),
+    howManyInput = document.querySelector("#input-how-many"),
+    duplicationYesInput = document.querySelector("#input-duplication-y"),
+    decimalYesInput = document.querySelector("#input-decimal-y"),
+    decimalInputs = document.querySelectorAll('input[name="decimal"]'),
+    decimalPlacesInput = document.querySelector("#input-decimal-places"),
+    sortYesInput = document.querySelector("#input-sort-y"),
+    form = document.querySelector("#main-form"),
+    outputEl = document.querySelector("#out"),
+    copyBtn = document.querySelector("#copy-btn");
 
   // Handles the 'change' event on the inputs that indicate if decimal numbers are allowed, and enables or disables the 'decimal-places' input
 
-  decimalInputs.on("change", () => {
-    decimalPlacesInput.prop("disabled", !decimalYesInput.is(":checked"));
+  decimalInputs.forEach((input) => {
+    input.addEventListener("change", () => {
+      decimalPlacesInput.disabled = !decimalYesInput.checked;
+    });
   });
 
   /**
@@ -28,37 +30,36 @@ function main() {
     @param e - The event object.
   */
 
-  form.on("submit", (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const min = parseFloat(minInput.val()),
-      max = parseFloat(maxInput.val()),
-      howMany = parseInt(howManyInput.val()),
-      duplication = duplicationYesInput.is(":checked"),
-      decimal = decimalYesInput.is(":checked"),
-      decimalPlaces = parseInt(decimalPlacesInput.val()),
-      sort = sortYesInput.is(":checked"),
+    const min = parseFloat(minInput.value),
+      max = parseFloat(maxInput.value),
+      howMany = parseInt(howManyInput.value),
+      duplication = duplicationYesInput.checked,
+      decimal = decimalYesInput.checked,
+      decimalPlaces = parseInt(decimalPlacesInput.value),
+      sort = sortYesInput.checked,
       numbers = randomNumbers(min, max, howMany, duplication, decimal, sort);
-    outputEl.html(
-      decimal
-        ? numbers.map((n) => roundTo(n, decimalPlaces)).join(", ")
-        : numbers.join(", "),
-    );
-    copyBtn.prop("disabled", false);
+    outputEl.innerHTML = decimal
+      ? numbers.map((n) => roundTo(n, decimalPlaces)).join(", ")
+      : numbers.join(", ");
+
+    copyBtn.removeAttribute("disabled");
   });
 
   // Handles the 'click' event on the 'Copy to Clipboard' button to copy the output to the clipboard.
 
-  copyBtn.on("click", () => {
-    const output = outputEl.text(),
-      btnText = copyBtn.text();
+  copyBtn.addEventListener("click", () => {
+    const output = outputEl.innerHTML,
+      btnText = copyBtn.innerHTML;
     navigator.clipboard.writeText(output);
-    copyBtn.text("Copied!");
+    copyBtn.innerHTML = "Copied!";
     setTimeout(() => {
-      copyBtn.text(btnText);
+      copyBtn.innerHTML = btnText;
     }, 1200);
   });
 }
 
 // Executes the main function on page load.
 
-$(document).ready(main);
+window.addEventListener("load", main);
